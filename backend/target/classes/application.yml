@@ -1,0 +1,44 @@
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: juzpncvvozbhqg
+    password: 5005924152da546e48aa8f714fdaabc2112962aa367d3c1f1873955b7c001277
+    url: jdbc:postgresql://ec2-34-200-94-86.compute-1.amazonaws.com:5432/d7gsbrmpm2t25d
+    platform: postgres
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    show-sql: true
+#    generate-ddl: false
+    #hibernate:
+    #  ddl-auto: create
+    database: postgresql
+
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false;
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+  #      dialect: org.hibernate.dialect.MySQL5Dialect
+
+#  jackson:
+#    default-property-inclusion: non_null
+#  redis:
+#    host: localhost
+#    port: 6379
+#  freemarker:
+#      cache: false
+
+
+
+
+  queries:
+    users-query: select email, password, active from users where email=?
+    roles-query: select email, role from users where email=?
+server:
+  servlet:
+    contextPath: /api
+
+jwtSecret: cm0=
+jwtExpiration: 86400
